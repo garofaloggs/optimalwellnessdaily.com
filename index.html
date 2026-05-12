@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wellness Access</title>
+<title>Cookie Notice</title>
 
 <style>
 body{
@@ -11,15 +11,24 @@ margin:0;
 font-family: Arial, sans-serif;
 }
 
-/* BACKGROUND IMAGE */
+/* BACKGROUND DESKTOP */
 .bg{
 position:fixed;
 inset:0;
 background-image:url('https://i.ibb.co/3myF702r/Captura-de-tela-2026-05-11-203849.png');
 background-size:cover;
 background-position:center;
-filter:blur(2px) brightness(0.7);
+filter:brightness(0.75);
 z-index:1;
+}
+
+/* BACKGROUND MOBILE (CORRIGIDO) */
+@media(max-width:768px){
+.bg{
+background-image:url('https://i.ibb.co/XZVj2ZD5/Captura-de-tela-2026-05-11-203834.png');
+background-size:cover;
+background-position:center top;
+}
 }
 
 /* OVERLAY */
@@ -29,47 +38,94 @@ inset:0;
 display:flex;
 align-items:center;
 justify-content:center;
+background:rgba(0,0,0,0.55);
 z-index:10;
-background:rgba(0,0,0,0.4);
+padding:20px;
 }
 
-/* MODAL */
+/* MODAL COOKIE (PRESELL STYLE) */
 .modal{
-width:90%;
+width:100%;
 max-width:520px;
 background:#fff;
 padding:32px;
 border-radius:18px;
 text-align:center;
-box-shadow:0 30px 80px rgba(0,0,0,0.3);
-transform:scale(1.05);
+box-shadow:0 25px 70px rgba(0,0,0,0.35);
+animation:pop .25s ease;
 }
 
-.modal h2{
+h2{
 margin-bottom:10px;
+font-size:22px;
 }
 
-.modal p{
-color:#555;
-line-height:1.6;
+.sub{
+font-size:13px;
+color:#777;
+margin-bottom:15px;
+}
+
+p{
 font-size:14px;
+line-height:1.6;
+color:#555;
+}
+
+.buttons{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
 button{
-margin-top:20px;
-padding:14px 18px;
-width:100%;
+padding:14px;
 border:none;
 border-radius:10px;
 font-weight:700;
 cursor:pointer;
-background:#111827;
-color:#fff;
 font-size:15px;
 }
 
-button:hover{
+.accept{
+background:#111827;
+color:#fff;
+}
+
+.accept:hover{
 background:#000;
+}
+
+.decline{
+background:#f3f4f6;
+color:#111;
+}
+
+.decline:hover{
+background:#e5e7eb;
+}
+
+.small{
+font-size:12px;
+color:#888;
+margin-top:10px;
+}
+
+@keyframes pop{
+from{transform:scale(0.95);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
+/* MELHORIA MOBILE */
+@media(max-width:480px){
+.modal{
+padding:24px;
+border-radius:16px;
+}
+h2{
+font-size:20px;
+}
 }
 </style>
 </head>
@@ -81,19 +137,44 @@ background:#000;
 <div class="overlay">
 <div class="modal">
 
-<h2>Continue to Wellness Content</h2>
+<h2>Cookie & Privacy Notice</h2>
+
+<div class="sub">
+We value your privacy and transparency
+</div>
 
 <p>
-This page provides informational content about modern wellness and lifestyle balance.
-By continuing, you will access additional details and resources.
+This website uses cookies to improve your browsing experience, analyze traffic, and provide relevant content based on user interaction.
 </p>
 
-<button onclick="window.location.href='https://www.diginear.com/33W2FTW8/2358PKDD/'">
-Continue
+<p class="small">
+You can accept or decline non-essential cookies at any time.
+</p>
+
+<div class="buttons">
+<button class="accept" onclick="acceptCookies()">
+Accept & Continue
 </button>
+
+<button class="decline" onclick="declineCookies()">
+Decline
+</button>
+</div>
 
 </div>
 </div>
+
+<script>
+function acceptCookies(){
+localStorage.setItem("cookies","accepted");
+document.querySelector(".overlay").style.display="none";
+}
+
+function declineCookies(){
+localStorage.setItem("cookies","declined");
+document.querySelector(".overlay").style.display="none";
+}
+</script>
 
 </body>
 </html>
