@@ -3,25 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wellness Guide</title>
+<title>Cookie Notice</title>
 
 <style>
 body{
-font-family: Arial, sans-serif;
 margin:0;
-background:#f5f7fb;
+font-family: Arial, sans-serif;
+background:#f4f6f9;
 color:#222;
 }
 
-.container{
+.content{
 max-width:800px;
 margin:0 auto;
-padding:40px 20px;
-background:white;
+padding:50px 20px;
 }
 
 h1{
-font-size:32px;
+font-size:28px;
 margin-bottom:20px;
 }
 
@@ -37,61 +36,73 @@ left:0;
 right:0;
 background:#111;
 color:#fff;
-padding:20px;
+padding:18px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 flex-wrap:wrap;
+z-index:9999;
 }
 
-.cookie-buttons button{
-margin:5px;
-padding:10px 16px;
+.cookie-banner p{
+margin:5px 10px;
+font-size:14px;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+}
+
+button{
 border:none;
+padding:10px 14px;
 cursor:pointer;
 border-radius:6px;
+font-weight:bold;
 }
 
 .accept{
 background:#10b981;
-color:white;
+color:#fff;
 }
 
 .decline{
 background:#555;
-color:white;
+color:#fff;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-<h1>Understanding Modern Wellness Support</h1>
+<div class="content">
+<h1>Privacy & Cookies Policy</h1>
 
 <p>
-Modern wellness approaches focus on lifestyle balance, nutrition awareness, and daily routine optimization.
-This article explores how people are improving their well-being through structured habits and informed choices.
+This website uses cookies to improve your browsing experience, personalize content, and analyze traffic.
 </p>
 
 <p>
-Many users search for supportive wellness solutions that align with energy balance, appetite awareness, and metabolic routine consistency.
+Cookies help us understand how users interact with the website and improve performance and usability.
 </p>
 
 <p>
-This content is for informational purposes only and does not constitute medical advice.
+You can choose to accept or decline non-essential cookies at any time.
 </p>
 
+<p>
+For more information, please review our Privacy Policy.
+</p>
 </div>
 
 <!-- COOKIE BANNER -->
-<div class="cookie-banner" id="cookies">
-<div>
-We use cookies to improve your experience and analyze traffic.
-</div>
+<div class="cookie-banner" id="cookieBanner">
+<p>
+We use cookies to enhance your experience. Do you accept cookies?
+</p>
 
-<div class="cookie-buttons">
+<div class="buttons">
 <button class="accept" onclick="acceptCookies()">Accept</button>
 <button class="decline" onclick="declineCookies()">Decline</button>
 </div>
@@ -99,11 +110,13 @@ We use cookies to improve your experience and analyze traffic.
 
 <script>
 function acceptCookies(){
-document.getElementById('cookies').style.display='none';
+document.getElementById('cookieBanner').style.display='none';
+localStorage.setItem("cookies","accepted");
 }
 
 function declineCookies(){
-document.getElementById('cookies').style.display='none';
+document.getElementById('cookieBanner').style.display='none';
+localStorage.setItem("cookies","declined");
 }
 </script>
 
