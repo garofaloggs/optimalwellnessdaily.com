@@ -3,128 +3,363 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cookie Notice</title>
+<title>Optimal Wellness Daily</title>
 
 <style>
-body{
+*{
 margin:0;
-font-family: Arial, sans-serif;
+padding:0;
+box-sizing:border-box;
 }
 
-/* BACKGROUND DESKTOP */
-.bg{
-position:fixed;
-inset:0;
-background-image:url('https://i.ibb.co/3myF702r/Captura-de-tela-2026-05-11-203849.png');
-background-size:cover;
-background-position:center;
-filter:brightness(0.75);
-z-index:1;
+body{
+font-family:Arial, sans-serif;
+background:#f5f7fb;
+color:#222;
+line-height:1.6;
+overflow-x:hidden;
 }
 
-/* BACKGROUND MOBILE */
-@media(max-width:768px){
-.bg{
-background-image:url('https://i.ibb.co/XZVj2ZD5/Captura-de-tela-2026-05-11-203834.png');
-background-size:cover;
-background-position:center top;
-}
-}
-
-/* OVERLAY */
-.overlay{
-position:fixed;
-inset:0;
+/* HERO */
+.hero{
+position:relative;
+min-height:100vh;
+background:url('https://i.ibb.co/3myF702r/Captura-de-tela-2026-05-11-203849.png') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
-background:rgba(0,0,0,0.55);
-z-index:10;
-padding:20px;
+padding:40px 20px;
 }
 
-/* MODAL */
-.modal{
-width:100%;
-max-width:520px;
-background:#fff;
-padding:32px;
-border-radius:18px;
+/* MOBILE BACKGROUND */
+@media(max-width:768px){
+.hero{
+background:url('https://i.ibb.co/XZVj2ZD5/Captura-de-tela-2026-05-11-203834.png') center top/cover no-repeat;
+}
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.58);
+backdrop-filter:blur(1px);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:760px;
 text-align:center;
-box-shadow:0 25px 70px rgba(0,0,0,0.35);
-animation:pop .25s ease;
+color:#fff;
 }
 
-h2{
-margin-bottom:10px;
-font-size:22px;
-}
-
-.sub{
+.badge{
+display:inline-block;
+background:rgba(255,255,255,0.12);
+padding:9px 16px;
+border-radius:999px;
 font-size:13px;
-color:#777;
-margin-bottom:15px;
+margin-bottom:20px;
+backdrop-filter:blur(8px);
+border:1px solid rgba(255,255,255,0.15);
 }
 
-p{
-font-size:14px;
-line-height:1.6;
-color:#555;
-}
-
-.buttons{
-margin-top:20px;
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-button{
-padding:14px;
-border:none;
-border-radius:10px;
+.hero h1{
+font-size:48px;
+line-height:1.15;
+margin-bottom:22px;
 font-weight:700;
-cursor:pointer;
-font-size:15px;
 }
 
-.accept{
+.hero p{
+font-size:18px;
+opacity:0.95;
+margin-bottom:30px;
+max-width:650px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.cta-btn{
+display:inline-block;
+padding:16px 30px;
+background:#10b981;
+color:#fff;
+text-decoration:none;
+border-radius:12px;
+font-weight:700;
+font-size:16px;
+transition:.25s;
+box-shadow:0 10px 30px rgba(16,185,129,0.3);
+}
+
+.cta-btn:hover{
+transform:translateY(-2px);
+background:#0ea371;
+}
+
+/* TRUST STRIP */
+.trust-strip{
+background:#fff;
+padding:16px;
+text-align:center;
+font-size:14px;
+color:#666;
+border-bottom:1px solid #eee;
+}
+
+/* SECTION */
+.section{
+padding:90px 20px;
+background:#fff;
+}
+
+.container{
+max-width:1100px;
+margin:0 auto;
+}
+
+.section h2{
+font-size:36px;
+margin-bottom:20px;
+text-align:center;
+}
+
+.section-intro{
+max-width:760px;
+margin:0 auto 25px auto;
+text-align:center;
+color:#555;
+font-size:17px;
+}
+
+/* BENEFITS GRID */
+.benefits{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:22px;
+margin-top:50px;
+}
+
+.card{
+background:#f7f8fb;
+padding:28px;
+border-radius:18px;
+text-align:left;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+transition:.25s;
+border:1px solid #edf0f5;
+}
+
+.card:hover{
+transform:translateY(-4px);
+}
+
+.card h3{
+margin-bottom:12px;
+font-size:20px;
+}
+
+.card p{
+color:#555;
+font-size:15px;
+line-height:1.7;
+}
+
+/* EXTRA CONTENT */
+.extra-section{
+padding:90px 20px;
+background:#f5f7fb;
+}
+
+.extra-content{
+max-width:850px;
+margin:0 auto;
+text-align:center;
+}
+
+.extra-content h2{
+font-size:34px;
+margin-bottom:20px;
+}
+
+.extra-content p{
+font-size:17px;
+color:#555;
+margin-bottom:18px;
+}
+
+/* FINAL CTA */
+.final-cta{
+padding:90px 20px;
+text-align:center;
 background:#111827;
 color:#fff;
 }
 
-.accept:hover{
-background:#000;
+.final-cta h2{
+font-size:40px;
+margin-bottom:20px;
 }
 
-.decline{
-background:#f3f4f6;
-color:#111;
+.final-cta p{
+max-width:760px;
+margin:0 auto 30px auto;
+opacity:0.9;
+font-size:17px;
 }
 
-.decline:hover{
-background:#e5e7eb;
+/* FOOTER */
+footer{
+padding:35px 20px 120px;
+text-align:center;
+font-size:13px;
+background:#0f172a;
+color:#aaa;
+line-height:1.8;
 }
 
-.small{
-font-size:12px;
-color:#888;
-margin-top:10px;
+footer a{
+color:#ddd;
+text-decoration:none;
+margin:0 10px;
 }
 
-@keyframes pop{
-from{transform:scale(0.95);opacity:0}
-to{transform:scale(1);opacity:1}
+/* COOKIE BANNER */
+#cookieBanner{
+position:fixed;
+bottom:20px;
+left:20px;
+right:20px;
+z-index:9999;
+display:flex;
+justify-content:center;
+animation:slideUp .35s ease;
+}
+
+.cookie-content{
+width:100%;
+max-width:950px;
+background:rgba(17,24,39,0.96);
+backdrop-filter:blur(12px);
+border-radius:18px;
+padding:22px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.35);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.cookie-text h3{
+color:#fff;
+margin-bottom:8px;
+font-size:18px;
+}
+
+.cookie-text p{
+color:#d1d5db;
+font-size:14px;
+line-height:1.6;
+max-width:650px;
+}
+
+.cookie-buttons{
+display:flex;
+gap:12px;
+flex-shrink:0;
+}
+
+.cookie-buttons button{
+padding:12px 22px;
+border:none;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
+font-size:14px;
+transition:.2s;
+}
+
+.cookie-accept{
+background:#10b981;
+color:#fff;
+}
+
+.cookie-accept:hover{
+background:#0ea371;
+transform:translateY(-1px);
+}
+
+.cookie-decline{
+background:#374151;
+color:#fff;
+}
+
+.cookie-decline:hover{
+background:#4b5563;
+transform:translateY(-1px);
 }
 
 /* MOBILE */
-@media(max-width:480px){
-.modal{
-padding:24px;
-border-radius:16px;
+@media(max-width:768px){
+
+.hero h1{
+font-size:34px;
 }
-h2{
-font-size:20px;
+
+.hero p{
+font-size:16px;
+}
+
+.section h2,
+.extra-content h2,
+.final-cta h2{
+font-size:28px;
+}
+
+.section-intro,
+.extra-content p,
+.final-cta p{
+font-size:15px;
+}
+
+.card{
+padding:24px;
+}
+
+.cta-btn{
+width:100%;
+max-width:320px;
+}
+
+.cookie-content{
+flex-direction:column;
+align-items:flex-start;
+padding:20px;
+}
+
+.cookie-buttons{
+width:100%;
+display:grid;
+grid-template-columns:1fr 1fr;
+}
+
+.cookie-buttons button{
+width:100%;
+}
+}
+
+/* ANIMATION */
+@keyframes slideUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
 }
 }
 </style>
@@ -132,50 +367,204 @@ font-size:20px;
 
 <body>
 
-<div class="bg"></div>
+<!-- HERO -->
+<section class="hero">
 
-<div class="overlay">
-<div class="modal">
+<div class="hero-content">
 
-<h2>Cookie & Privacy Notice</h2>
-
-<div class="sub">
-We value your privacy and transparency
+<div class="badge">
+Modern Wellness & Lifestyle Support
 </div>
+
+<h1>
+Support Your Daily Wellness & Lifestyle Balance
+</h1>
 
 <p>
-This website uses cookies to improve your browsing experience, analyze traffic, and provide relevant content based on user interaction.
+Explore a modern approach to structured wellness routines designed to complement healthy habits, consistent energy, and everyday lifestyle balance.
 </p>
 
-<p class="small">
-You can accept or decline non-essential cookies at any time.
+<a class="cta-btn" href="https://www.diginear.com/33W2FTW8/2358PKDD/">
+Continue to Full Resource
+</a>
+
+</div>
+
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+Trusted wellness-focused informational content designed for modern lifestyle support.
+</div>
+
+<!-- BENEFITS -->
+<section class="section">
+
+<div class="container">
+
+<h2>
+Why More People Are Exploring Structured Wellness Routines
+</h2>
+
+<p class="section-intro">
+Daily wellness awareness and routine consistency are becoming increasingly important for individuals seeking better balance, structure, and long-term lifestyle support.
 </p>
 
-<div class="buttons">
-<button class="accept" onclick="acceptCookies()">
-Accept & Continue
+<div class="benefits">
+
+<div class="card">
+<h3>Daily Energy Support</h3>
+<p>
+Focused on supporting consistency, routine structure, and balanced daily habits through modern wellness approaches.
+</p>
+</div>
+
+<div class="card">
+<h3>Routine & Lifestyle Balance</h3>
+<p>
+Modern wellness strategies are increasingly centered around sustainable habits and structured lifestyle consistency.
+</p>
+</div>
+
+<div class="card">
+<h3>Wellness-Focused Living</h3>
+<p>
+A structured approach designed to complement healthy lifestyle awareness and support everyday balance.
+</p>
+</div>
+
+<div class="card">
+<h3>Everyday Wellness Habits</h3>
+<p>
+Encourages a more mindful and consistent approach to everyday routines, lifestyle structure, and wellness awareness.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXTRA CONTENT -->
+<section class="extra-section">
+
+<div class="extra-content">
+
+<h2>
+A Modern Perspective on Wellness Support
+</h2>
+
+<p>
+As wellness awareness continues to grow globally, more individuals are prioritizing sustainable routines that support consistency, balance, and long-term lifestyle structure.
+</p>
+
+<p>
+Modern approaches to wellness increasingly focus on daily habits, routine awareness, and practical lifestyle support rather than short-term solutions.
+</p>
+
+<p>
+This informational content was created to provide a broader perspective on contemporary wellness trends and structured lifestyle approaches.
+</p>
+
+</div>
+
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+
+<h2>
+Discover the Full Wellness Experience
+</h2>
+
+<p>
+Learn more about modern wellness-focused approaches and explore additional informational resources designed to support healthier daily routines and lifestyle balance.
+</p>
+
+<a class="cta-btn" href="https://www.diginear.com/33W2FTW8/2358PKDD/">
+Continue to Official Page
+</a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+© 2026 Optimal Wellness Daily. All rights reserved.
+
+<br><br>
+
+<a href="#">Privacy Policy</a>
+|
+<a href="#">Terms of Service</a>
+|
+<a href="#">Contact</a>
+
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+
+<div class="cookie-content">
+
+<div class="cookie-text">
+<h3>🍪 Cookie Notice</h3>
+
+<p>
+We use cookies and similar technologies to improve your experience, analyze traffic, and support website performance and marketing analytics.
+</p>
+</div>
+
+<div class="cookie-buttons">
+
+<button class="cookie-accept" onclick="acceptCookies()">
+Accept
 </button>
 
-<button class="decline" onclick="declineCookies()">
+<button class="cookie-decline" onclick="declineCookies()">
 Decline
 </button>
+
 </div>
 
 </div>
+
 </div>
 
 <script>
-const offerUrl = "https://www.diginear.com/33W2FTW8/2358PKDD/";
 
+/* COOKIE ACCEPT */
 function acceptCookies(){
-localStorage.setItem("cookies","accepted");
-window.location.href = offerUrl;
+
+localStorage.setItem("cookieConsent","accepted");
+
+console.log("Cookies accepted");
+
+document.getElementById("cookieBanner").style.display="none";
 }
 
+/* COOKIE DECLINE */
 function declineCookies(){
-localStorage.setItem("cookies","declined");
-window.location.href = offerUrl;
+
+localStorage.setItem("cookieConsent","declined");
+
+console.log("Cookies declined");
+
+document.getElementById("cookieBanner").style.display="none";
 }
+
+/* HIDE IF ALREADY ACCEPTED */
+window.addEventListener("load",function(){
+
+const consent = localStorage.getItem("cookieConsent");
+
+if(consent){
+document.getElementById("cookieBanner").style.display="none";
+}
+
+});
+
 </script>
 
 </body>
