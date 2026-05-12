@@ -1,54 +1,127 @@
-text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
-animation:pop .25s ease;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Preferences</title>
+
+<style>
+body{
+margin:0;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+background:#f5f7fb;
+color:#111;
+}
+
+.page{
+max-width:900px;
+margin:0 auto;
+padding:60px 20px;
+}
+
+h1{
+font-size:34px;
+margin-bottom:20px;
+}
+
+p{
+line-height:1.7;
+color:#444;
+}
+
+/* OVERLAY */
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.55);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+padding:20px;
+}
+
+/* MODAL PREMIUM */
+.modal{
+background:#fff;
+width:100%;
+max-width:560px;
+border-radius:18px;
+padding:28px;
+box-shadow:0 30px 80px rgba(0,0,0,0.25);
+transform:translateY(20px);
+opacity:0;
+animation:fadeUp .35s ease forwards;
+}
+
+.badge{
+display:inline-block;
+background:#eef2ff;
+color:#4f46e5;
+font-size:12px;
+padding:6px 10px;
+border-radius:999px;
+margin-bottom:12px;
+font-weight:600;
 }
 
 .modal h2{
-margin-top:0;
-font-size:24px;
+margin:0 0 10px 0;
+font-size:22px;
 }
 
 .modal p{
-font-size:15px;
+font-size:14px;
 line-height:1.6;
-color:#444;
+color:#555;
 }
 
 .buttons{
 display:flex;
 gap:10px;
-justify-content:center;
 margin-top:20px;
 flex-wrap:wrap;
 }
 
 button{
-border:none;
-padding:12px 18px;
+flex:1;
+padding:12px 14px;
+border-radius:10px;
+font-weight:600;
 cursor:pointer;
-border-radius:8px;
-font-weight:bold;
-min-width:120px;
+border:none;
+transition:.2s ease;
 }
 
 .accept{
-background:#10b981;
+background:#111827;
 color:#fff;
+}
+
+.accept:hover{
+background:#000;
+transform:translateY(-1px);
 }
 
 .decline{
-background:#555;
-color:#fff;
+background:#f3f4f6;
+color:#111;
 }
 
-@keyframes pop{
-from{
-transform:scale(0.8);
-opacity:0;
+.decline:hover{
+background:#e5e7eb;
 }
+
+.small{
+font-size:12px;
+color:#888;
+margin-top:12px;
+}
+
+@keyframes fadeUp{
 to{
-transform:scale(1);
 opacity:1;
+transform:translateY(0);
 }
 }
 </style>
@@ -56,38 +129,54 @@ opacity:1;
 
 <body>
 
-<div class="content">
-<h1>Privacy & Cookies Policy</h1>
-<p>This website uses cookies to improve your experience and analyze traffic.</p>
-<p>You can accept or decline cookies at any time.</p>
+<div class="page">
+<h1>Privacy & Transparency</h1>
+<p>This website uses cookies to enhance experience, measure traffic, and improve content relevance.</p>
+<p>You can change your preferences at any time.</p>
 </div>
 
 <!-- COOKIE MODAL -->
 <div class="overlay" id="cookieOverlay">
 <div class="modal">
-<h2>🍪 Cookie Notice</h2>
+<div class="badge">Privacy Settings</div>
+
+<h2>We value your privacy</h2>
 
 <p>
-We use cookies to enhance your browsing experience, personalize content, and analyze traffic.
-By continuing, you agree to our cookie policy.
+We use cookies to improve your browsing experience, analyze site traffic, and personalize content.
+You can choose to accept or decline non-essential cookies.
 </p>
 
 <div class="buttons">
-<button class="accept" onclick="acceptCookies()">Accept</button>
+<button class="accept" onclick="acceptCookies()">Accept all cookies</button>
 <button class="decline" onclick="declineCookies()">Decline</button>
+</div>
+
+<div class="small">
+By continuing, you agree to our Privacy Policy and Cookie Policy.
 </div>
 </div>
 </div>
 
 <script>
+// show with delay (premium UX)
+window.addEventListener("load", function(){
+const already = localStorage.getItem("cookies");
+if(!already){
+setTimeout(()=>{
+document.getElementById("cookieOverlay").style.display="flex";
+}, 900);
+}
+});
+
 function acceptCookies(){
-document.getElementById('cookieOverlay').style.display='none';
 localStorage.setItem("cookies","accepted");
+document.getElementById("cookieOverlay").style.display="none";
 }
 
 function declineCookies(){
-document.getElementById('cookieOverlay').style.display='none';
 localStorage.setItem("cookies","declined");
+document.getElementById("cookieOverlay").style.display="none";
 }
 </script>
 
