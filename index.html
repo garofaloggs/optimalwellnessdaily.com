@@ -1,65 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cookie Notice</title>
-
-<style>
-body{
-margin:0;
-font-family: Arial, sans-serif;
-background:#f4f6f9;
-color:#222;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+animation:pop .25s ease;
 }
 
-.content{
-max-width:800px;
-margin:0 auto;
-padding:50px 20px;
+.modal h2{
+margin-top:0;
+font-size:24px;
 }
 
-h1{
-font-size:28px;
-margin-bottom:20px;
-}
-
-p{
-line-height:1.7;
-margin-bottom:15px;
-}
-
-.cookie-banner{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:#111;
-color:#fff;
-padding:18px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-z-index:9999;
-}
-
-.cookie-banner p{
-margin:5px 10px;
-font-size:14px;
+.modal p{
+font-size:15px;
+line-height:1.6;
+color:#444;
 }
 
 .buttons{
 display:flex;
 gap:10px;
+justify-content:center;
+margin-top:20px;
+flex-wrap:wrap;
 }
 
 button{
 border:none;
-padding:10px 14px;
+padding:12px 18px;
 cursor:pointer;
-border-radius:6px;
+border-radius:8px;
 font-weight:bold;
+min-width:120px;
 }
 
 .accept{
@@ -71,6 +40,17 @@ color:#fff;
 background:#555;
 color:#fff;
 }
+
+@keyframes pop{
+from{
+transform:scale(0.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
 </style>
 </head>
 
@@ -78,28 +58,18 @@ color:#fff;
 
 <div class="content">
 <h1>Privacy & Cookies Policy</h1>
-
-<p>
-This website uses cookies to improve your browsing experience, personalize content, and analyze traffic.
-</p>
-
-<p>
-Cookies help us understand how users interact with the website and improve performance and usability.
-</p>
-
-<p>
-You can choose to accept or decline non-essential cookies at any time.
-</p>
-
-<p>
-For more information, please review our Privacy Policy.
-</p>
+<p>This website uses cookies to improve your experience and analyze traffic.</p>
+<p>You can accept or decline cookies at any time.</p>
 </div>
 
-<!-- COOKIE BANNER -->
-<div class="cookie-banner" id="cookieBanner">
+<!-- COOKIE MODAL -->
+<div class="overlay" id="cookieOverlay">
+<div class="modal">
+<h2>🍪 Cookie Notice</h2>
+
 <p>
-We use cookies to enhance your experience. Do you accept cookies?
+We use cookies to enhance your browsing experience, personalize content, and analyze traffic.
+By continuing, you agree to our cookie policy.
 </p>
 
 <div class="buttons">
@@ -107,15 +77,16 @@ We use cookies to enhance your experience. Do you accept cookies?
 <button class="decline" onclick="declineCookies()">Decline</button>
 </div>
 </div>
+</div>
 
 <script>
 function acceptCookies(){
-document.getElementById('cookieBanner').style.display='none';
+document.getElementById('cookieOverlay').style.display='none';
 localStorage.setItem("cookies","accepted");
 }
 
 function declineCookies(){
-document.getElementById('cookieBanner').style.display='none';
+document.getElementById('cookieOverlay').style.display='none';
 localStorage.setItem("cookies","declined");
 }
 </script>
