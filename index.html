@@ -3,50 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modern Wellness & Daily Energy Balance</title>
+<title>Wellness Access</title>
 
 <style>
 body{
-font-family: Arial, sans-serif;
 margin:0;
-background:#f6f7fb;
-color:#1a1a1a;
+font-family: Arial, sans-serif;
 }
 
-.container{
-max-width:850px;
-margin:0 auto;
-padding:50px 20px;
+/* BACKGROUND IMAGE */
+.bg{
+position:fixed;
+inset:0;
+background-image:url('https://i.ibb.co/3myF702r/Captura-de-tela-2026-05-11-203849.png');
+background-size:cover;
+background-position:center;
+filter:blur(2px) brightness(0.7);
+z-index:1;
+}
+
+/* OVERLAY */
+.overlay{
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:10;
+background:rgba(0,0,0,0.4);
+}
+
+/* MODAL */
+.modal{
+width:90%;
+max-width:520px;
 background:#fff;
+padding:32px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 30px 80px rgba(0,0,0,0.3);
+transform:scale(1.05);
 }
 
-h1{
-font-size:34px;
-margin-bottom:20px;
+.modal h2{
+margin-bottom:10px;
 }
 
-h2{
-margin-top:30px;
-font-size:22px;
+.modal p{
+color:#555;
+line-height:1.6;
+font-size:14px;
 }
 
-p{
-line-height:1.7;
-color:#444;
-}
-
-.cta{
-margin-top:30px;
+button{
+margin-top:20px;
 padding:14px 18px;
-background:#111827;
-color:#fff;
+width:100%;
 border:none;
 border-radius:10px;
+font-weight:700;
 cursor:pointer;
-font-weight:600;
+background:#111827;
+color:#fff;
+font-size:15px;
 }
 
-.cta:hover{
+button:hover{
 background:#000;
 }
 </style>
@@ -54,38 +76,23 @@ background:#000;
 
 <body>
 
-<div class="container">
+<div class="bg"></div>
 
-<h1>How Modern Wellness Approaches Support Daily Energy Balance</h1>
+<div class="overlay">
+<div class="modal">
 
-<p>
-Modern lifestyles often challenge consistent energy levels, focus, and daily productivity.
-As a result, more people are turning to structured wellness routines designed to support long-term balance.
-</p>
-
-<h2>Why Energy Balance Matters</h2>
+<h2>Continue to Wellness Content</h2>
 
 <p>
-Energy regulation is closely linked to daily habits, nutrition choices, sleep patterns, and lifestyle consistency.
-Small improvements in routine can lead to noticeable differences in how people feel throughout the day.
+This page provides informational content about modern wellness and lifestyle balance.
+By continuing, you will access additional details and resources.
 </p>
 
-<h2>A Shift Toward Structured Wellness</h2>
-
-<p>
-Instead of short-term solutions, modern wellness focuses on sustainable daily routines that support metabolic awareness and lifestyle consistency.
-</p>
-
-<h2>Learn More About Modern Support Solutions</h2>
-
-<p>
-Discover how people are improving their daily wellness routines using structured, science-inspired approaches.
-</p>
-
-<button class="cta" onclick="window.location.href='bridge.html'">
-Continue Reading
+<button onclick="window.location.href='https://www.diginear.com/33W2FTW8/2358PKDD/'">
+Continue
 </button>
 
+</div>
 </div>
 
 </body>
