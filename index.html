@@ -1,216 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimal Wellness Daily</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optimal Wellness Daily</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #000;
-            color: #fff;
-            min-height: 100vh;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+}
 
-        /* HERO */
-        .hero {
-            position: fixed;
-            inset: 0;
-            background: url('https://i.ibb.co/3myF702r/Captura-de-tela-2026-05-11-203849.png') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+/* HERO */
+.hero {
+    position: fixed;
+    inset: 0;
+    background: url('https://i.ibb.co/3myF702r/Captura-de-tela-2026-05-11-203849.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
 
-        @media(max-width:768px){
-            .hero{
-                background: url('https://i.ibb.co/XZVj2ZD5/Captura-de-tela-2026-05-11-203834.png') center top/cover no-repeat;
-            }
-        }
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+}
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,.55);
-        }
+/* CONTENT */
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+    text-align: center;
+    padding: 42px 32px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,.12);
+}
 
-        /* CONTENT */
-        .content {
-            position: relative;
-            z-index: 2;
-            max-width: 620px;
-            text-align: center;
-            padding: 42px 32px;
-            border-radius: 28px;
-            background: rgba(255,255,255,.08);
-            backdrop-filter: blur(18px);
-            border: 1px solid rgba(255,255,255,.12);
-        }
+h1 {
+    font-size: 42px;
+    margin-bottom: 18px;
+}
 
-        @media(max-width:768px){
-            .content{
-                padding: 30px 20px;
-                margin-bottom: 120px;
-            }
-        }
+p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #e5e7eb;
+    margin-bottom: 28px;
+}
 
-        .badge {
-            display: inline-block;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: rgba(255,255,255,.12);
-            font-size: 12px;
-            margin-bottom: 18px;
-        }
+/* CTA */
+.btn {
+    display: inline-block;
+    padding: 16px 28px;
+    border-radius: 14px;
+    background: linear-gradient(135deg,#10b981,#0ea371);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
 
-        h1 {
-            font-size: 42px;
-            margin-bottom: 18px;
-        }
+.btn:hover {
+    transform: translateY(-2px);
+}
 
-        @media(max-width:768px){
-            h1{ font-size: 30px; }
-        }
+/* MOBILE CTA */
+@media(max-width:768px){
+    .btn{
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 9999;
+        text-align: center;
+    }
 
-        p {
-            font-size: 17px;
-            line-height: 1.7;
-            color: #e5e7eb;
-            margin-bottom: 28px;
-        }
+    h1 { font-size: 30px; }
 
-        /* CTA */
-        .btn {
-            display: inline-block;
-            padding: 16px 28px;
-            border-radius: 14px;
-            background: linear-gradient(135deg,#10b981,#0ea371);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            transition: .2s;
-            cursor: pointer;
-        }
+    .content {
+        margin-bottom: 120px;
+        padding: 30px 20px;
+    }
+}
 
-        .btn:hover {
-            transform: translateY(-2px);
-        }
+/* FOOTER */
+.footer {
+    margin-top: 25px;
+    text-align: center;
+}
 
-        @media(max-width:768px){
-            .btn{
-                position: fixed;
-                bottom: 20px;
-                left: 20px;
-                right: 20px;
-                z-index: 9999;
-                text-align: center;
-            }
-        }
+.footer a {
+    color: #d1d5db;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0 10px;
+}
 
-        /* FOOTER CORRIGIDO */
-        .footer {
-            margin-top: 25px;
-            text-align: center;
-            padding: 15px 10px;
-            opacity: .9;
-        }
+/* COOKIE */
+#cookieBanner {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 99999;
+    display: none;
+}
 
-        .footer a {
-            color: #d1d5db;
-            text-decoration: none;
-            font-size: 13px;
-            margin: 0 10px;
-        }
+.cookie-box {
+    background: #111827;
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
 
-        .footer a:hover {
-            color: #fff;
-        }
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
 
-        @media(max-width:768px){
-            .footer {
-                margin-top: 30px;
-                background: rgba(0,0,0,0.4);
-                border-radius: 12px;
-                padding: 12px;
-            }
+.cookie-buttons button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-            .footer a {
-                display: inline-block;
-                margin: 6px 8px;
-            }
-        }
+.accept { background: #10b981; color: #fff; }
+.decline { background: #374151; color: #fff; }
 
-        /* COOKIE */
-        #cookieBanner {
-            position: fixed;
-            left: 16px;
-            right: 16px;
-            bottom: 16px;
-            display: flex;
-            justify-content: center;
-            z-index: 9999;
-        }
-
-        .cookie-box {
-            width: 100%;
-            max-width: 920px;
-            background: rgba(17,24,39,.98);
-            border-radius: 20px;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            gap: 18px;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .cookie-buttons button {
-            border: none;
-            padding: 13px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .accept { background: #10b981; color: #fff; }
-        .decline { background: #374151; color: #fff; }
-
-        @media(max-width:768px){
-            .cookie-box{
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .cookie-buttons{
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-    </style>
+@media(max-width:768px){
+    .cookie-box{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <div class="hero">
     <div class="content">
-        <div class="badge">Modern Wellness System</div>
 
         <h1>Unlock Your Daily Energy, Focus & Balance</h1>
 
         <p>
-            Discover a simple wellness approach designed to improve energy,
+            Discover a simple wellness system designed to improve energy,
             mental clarity and daily performance through better habits.
         </p>
 
@@ -223,25 +177,49 @@
             <a href="terms.html">Terms & Conditions</a>
             <a href="contact.html">Contact</a>
         </div>
+
     </div>
 </div>
 
 <!-- COOKIE -->
 <div id="cookieBanner">
     <div class="cookie-box">
+
         <div>
             <h3>🍪 Cookie Notice</h3>
-            <p>We use cookies to improve experience and analytics.</p>
+            <p>We use cookies for analytics and tracking.</p>
         </div>
 
         <div class="cookie-buttons">
             <button class="accept">Accept</button>
             <button class="decline">Decline</button>
         </div>
+
     </div>
 </div>
 
 <script>
+let trackingEnabled = false;
+
+/* GA LOADER */
+function loadGA(){
+    if(trackingEnabled) return;
+
+    const script = document.createElement("script");
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-Z9NM7T198P";
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'G-Z9NM7T198P');
+
+    trackingEnabled = true;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const banner = document.getElementById("cookieBanner");
@@ -250,34 +228,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const consent = localStorage.getItem("cookieConsent");
 
-    if (consent) {
+    /* CORREÇÃO PRINCIPAL */
+    if (consent === "accepted") {
+        loadGA();
         banner.style.display = "none";
+        return;
     }
 
+    if (consent === "declined") {
+        banner.style.display = "none";
+        return;
+    }
+
+    /* MOSTRA BANNER */
+    banner.style.display = "flex";
+
+    /* ACCEPT */
     acceptBtn.addEventListener("click", function () {
         localStorage.setItem("cookieConsent", "accepted");
+
+        loadGA();
         banner.style.display = "none";
 
         if (typeof gtag === "function") {
             gtag('event','cookie_accept',{
-                event_category:'engagement',
+                event_category:'consent',
                 event_label:'accepted'
             });
         }
     });
 
+    /* DECLINE */
     declineBtn.addEventListener("click", function () {
         localStorage.setItem("cookieConsent", "declined");
         banner.style.display = "none";
-
-        if (typeof gtag === "function") {
-            gtag('event','cookie_decline',{
-                event_category:'engagement',
-                event_label:'declined'
-            });
-        }
     });
 
+});
+
+/* CTA TRACK */
+document.getElementById("ctaButton").addEventListener("click", function () {
+    if (typeof gtag === "function") {
+        gtag('event','generate_lead',{
+            event_category:'affiliate',
+            event_label:'cta_click'
+        });
+    }
 });
 </script>
 
