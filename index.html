@@ -98,6 +98,7 @@
             text-decoration: none;
             font-weight: 700;
             transition: .2s;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -115,7 +116,7 @@
             }
         }
 
-        /* FOOTER (CORRIGIDO) */
+        /* FOOTER CORRIGIDO */
         .footer {
             margin-top: 25px;
             text-align: center;
@@ -134,7 +135,6 @@
             color: #fff;
         }
 
-        /* MOBILE FOOTER AJUSTE */
         @media(max-width:768px){
             .footer {
                 margin-top: 30px;
@@ -171,6 +171,11 @@
             gap: 18px;
         }
 
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
         .cookie-buttons button {
             border: none;
             padding: 13px 20px;
@@ -187,6 +192,11 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            .cookie-buttons{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
@@ -200,7 +210,7 @@
         <h1>Unlock Your Daily Energy, Focus & Balance</h1>
 
         <p>
-            Discover a simple wellness approach designed to help you improve energy,
+            Discover a simple wellness approach designed to improve energy,
             mental clarity and daily performance through better habits.
         </p>
 
@@ -208,7 +218,6 @@
             Continue
         </a>
 
-        <!-- FOOTER CORRIGIDO -->
         <div class="footer">
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms & Conditions</a>
@@ -231,6 +240,46 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const banner = document.getElementById("cookieBanner");
+    const acceptBtn = document.querySelector(".accept");
+    const declineBtn = document.querySelector(".decline");
+
+    const consent = localStorage.getItem("cookieConsent");
+
+    if (consent) {
+        banner.style.display = "none";
+    }
+
+    acceptBtn.addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "accepted");
+        banner.style.display = "none";
+
+        if (typeof gtag === "function") {
+            gtag('event','cookie_accept',{
+                event_category:'engagement',
+                event_label:'accepted'
+            });
+        }
+    });
+
+    declineBtn.addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "declined");
+        banner.style.display = "none";
+
+        if (typeof gtag === "function") {
+            gtag('event','cookie_decline',{
+                event_category:'engagement',
+                event_label:'declined'
+            });
+        }
+    });
+
+});
+</script>
 
 </body>
 </html>
