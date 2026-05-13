@@ -1,3 +1,6 @@
+# Código completo com páginas integradas
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,499 +13,433 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  font-family:'Inter',sans-serif;
-  background:#fff;
-  color:#1A3C34;
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #1A3C34;
 }
 
-.page{
-  display:none;
+.page {
+  display: none;
 }
 
-.page.active{
-  display:block;
+.page.active {
+  display: block;
 }
 
-.hero{
-  position:relative;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
-.hero-bg{
-  position:absolute;
-  inset:0;
-  background:url('https://media.base44.com/images/public/6a04f0ba8a3583144fe94749/3e26b84b2_generated_30c59bff.png') center/cover no-repeat;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://media.base44.com/images/public/6a04f0ba8a3583144fe94749/3e26b84b2_generated_30c59bff.png') center/cover no-repeat;
 }
 
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(255,255,255,.70),
-    rgba(255,255,255,.50),
-    rgba(255,255,255,.90)
-  );
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,.70), rgba(255,255,255,.50), rgba(255,255,255,.90));
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  width:100%;
-  max-width:1100px;
-  margin:0 auto;
-  padding:112px 40px 140px;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 112px 40px 140px;
 }
 
-.hero-inner{
-  max-width:640px;
+.hero-inner {
+  max-width: 640px;
 }
 
-.hero-eyebrow{
-  font-size:12px;
-  font-weight:600;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:rgba(26,60,52,.6);
-  margin-bottom:16px;
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(26,60,52,.6);
+  margin-bottom: 16px;
 }
 
-.hero h1{
-  font-size:clamp(2.2rem,6vw,4.2rem);
-  font-weight:700;
-  line-height:1.1;
-  letter-spacing:-.02em;
-  color:#1A3C34;
-  margin-bottom:24px;
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: #1A3C34;
+  margin-bottom: 24px;
 }
 
-.hero h1 span{
-  color:#4ADE80;
+.hero h1 span {
+  color: #4ADE80;
 }
 
-.hero p{
-  font-size:1.1rem;
-  line-height:1.75;
-  color:#4a6b5f;
-  max-width:480px;
-  margin-bottom:40px;
+.hero p {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #4a6b5f;
+  max-width: 480px;
+  margin-bottom: 40px;
 }
 
-.btn-primary{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background:#4ADE80;
-  color:#1A3C34;
-  font-weight:700;
-  font-size:1.05rem;
-  padding:18px 36px;
-  border-radius:18px;
-  text-decoration:none;
-  box-shadow:0 8px 30px rgba(74,222,128,.30);
-  transition:transform .25s,box-shadow .25s;
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #4ADE80;
+  color: #1A3C34;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 18px 36px;
+  border-radius: 18px;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(74,222,128,.30);
+  transition: transform .25s, box-shadow .25s;
 }
 
-.btn-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 12px 40px rgba(74,222,128,.40);
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(74,222,128,.40);
 }
 
-.btn-arrow{
-  font-size:1.2rem;
-  transition:transform .25s;
+.btn-arrow {
+  font-size: 1.2rem;
 }
 
-.btn-primary:hover .btn-arrow{
-  transform:translateX(4px);
+/* TRUST */
+.trust {
+  background: #F8FAFC;
+  padding: 100px 40px;
 }
 
-.trust{
-  background:#F8FAFC;
-  padding:100px 40px;
+.trust-center {
+  text-align: center;
 }
 
-.section-eyebrow{
-  font-size:12px;
-  font-weight:600;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:#7a9b92;
-  margin-bottom:12px;
-  display:block;
+.section-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #7a9b92;
+  margin-bottom: 12px;
+  display: block;
 }
 
-.section-title{
-  font-size:clamp(1.8rem,4vw,3rem);
-  font-weight:700;
-  color:#1A3C34;
-  letter-spacing:-.02em;
-  margin-bottom:56px;
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #1A3C34;
+  letter-spacing: -.02em;
+  margin-bottom: 56px;
 }
 
-.trust-center{
-  text-align:center;
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.cards-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
-  max-width:1100px;
-  margin:0 auto;
+.card {
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(26,60,52,.10);
+  border-radius: 24px;
+  padding: 40px;
 }
 
-.card{
-  background:rgba(255,255,255,.85);
-  border:1px solid rgba(26,60,52,.10);
-  border-radius:24px;
-  padding:40px;
-  transition:transform .3s,box-shadow .3s;
+.card-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(74,222,128,.12);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
 }
 
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 16px 40px rgba(74,222,128,.08);
+.card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1A3C34;
+  margin-bottom: 12px;
 }
 
-.card-icon{
-  width:56px;
-  height:56px;
-  background:rgba(74,222,128,.12);
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:24px;
-  font-size:1.5rem;
+.card p {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: #4a6b5f;
 }
 
-.card h3{
-  font-size:1.15rem;
-  font-weight:700;
-  color:#1A3C34;
-  margin-bottom:12px;
+/* WELLNESS */
+.wellness {
+  padding: 100px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.card p{
-  font-size:.95rem;
-  line-height:1.7;
-  color:#4a6b5f;
+.wellness-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 100px;
 }
 
-.wellness{
-  padding:100px 40px;
-  background:#fff;
-  max-width:1100px;
-  margin:0 auto;
+.wellness-img {
+  border-radius: 28px;
+  overflow: hidden;
 }
 
-.wellness-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:64px;
-  align-items:center;
-  margin-bottom:100px;
+.wellness-img img {
+  width: 100%;
+  display: block;
 }
 
-.wellness-row:last-child{
-  margin-bottom:0;
+.wellness-text h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
-.wellness-img{
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
+.wellness-text p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #4a6b5f;
+  margin-bottom: 28px;
 }
 
-.wellness-img.portrait{
-  aspect-ratio:3/4;
+.benefits-list {
+  list-style: none;
 }
 
-.wellness-img.square{
-  aspect-ratio:1/1;
+.benefits-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-.wellness-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+.check-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(74,222,128,.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.wellness-text h2{
-  font-size:clamp(1.6rem,3vw,2.4rem);
-  font-weight:700;
-  color:#1A3C34;
-  letter-spacing:-.02em;
-  margin-bottom:20px;
-  line-height:1.2;
+/* FOOTER */
+footer {
+  background: #1A3C34;
+  color: rgba(255,255,255,.6);
+  padding: 48px 40px 32px;
 }
 
-.wellness-text p{
-  font-size:1.05rem;
-  line-height:1.75;
-  color:#4a6b5f;
-  margin-bottom:28px;
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
-.benefits-list{
-  list-style:none;
+.footer-links {
+  display: flex;
+  gap: 28px;
 }
 
-.benefits-list li{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  margin-bottom:16px;
-  font-size:1rem;
-  color:#1A3C34;
+.footer-links a {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.check-icon{
-  width:24px;
-  height:24px;
-  background:rgba(74,222,128,.15);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  margin-top:1px;
-  font-size:.75rem;
-  color:#1A3C34;
+.footer-links a:hover {
+  color: #fff;
 }
 
-footer{
-  background:#1A3C34;
-  color:rgba(255,255,255,.6);
-  padding:48px 40px 32px;
+/* MOBILE CTA */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 120px;
+  left: 16px;
+  right: 16px;
+  z-index: 1000;
 }
 
-.footer-inner{
-  max-width:1100px;
-  margin:0 auto;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.footer-inner p{
-  font-size:.85rem;
-}
-
-.footer-links{
-  display:flex;
-  gap:28px;
-}
-
-.footer-links a{
-  color:rgba(255,255,255,.6);
-  text-decoration:none;
-  font-size:.85rem;
-  transition:color .2s;
-  cursor:pointer;
-}
-
-.footer-links a:hover{
-  color:#fff;
-}
-
-.mobile-cta{
-  display:none;
-  position:fixed;
-  bottom:80px;
-  left:16px;
-  right:16px;
-  z-index:1000;
-}
-
-.mobile-cta a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  width:100%;
-  background:#4ADE80;
-  color:#1A3C34;
-  font-weight:700;
-  font-size:1rem;
-  padding:16px;
-  border-radius:18px;
-  text-decoration:none;
-  box-shadow:0 8px 32px rgba(74,222,128,.35);
-  min-height:52px;
+.mobile-cta a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #4ADE80;
+  color: #1A3C34;
+  font-weight: 700;
+  padding: 16px;
+  border-radius: 18px;
+  text-decoration: none;
 }
 
 /* COOKIE */
-#cookieBanner{
-  position:fixed;
-  bottom:18px;
-  left:0;
-  right:0;
-  z-index:900;
-  padding:12px 16px;
-  display:none;
-  pointer-events:none;
+#cookieBanner {
+  position: fixed;
+  bottom: 20px;
+  left: 16px;
+  right: 16px;
+  z-index: 900;
+  display: none;
 }
 
-.cookie-box{
-  max-width:860px;
-  margin:0 auto;
-  background:rgba(26,60,52,.97);
-  backdrop-filter:blur(16px);
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.10);
-  padding:16px 20px;
-  display:flex;
-  align-items:center;
-  gap:16px;
-  pointer-events:auto;
-  box-shadow:0 10px 40px rgba(0,0,0,.18);
+.cookie-box {
+  max-width: 860px;
+  margin: 0 auto;
+  background: rgba(26,60,52,.97);
+  border-radius: 18px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.cookie-text{
-  flex:1;
-  display:flex;
-  align-items:center;
-  gap:10px;
+.cookie-text {
+  flex: 1;
 }
 
-.cookie-text span.cookie-emoji{
-  font-size:1.1rem;
-  flex-shrink:0;
+.cookie-text p {
+  color: rgba(255,255,255,.85);
 }
 
-.cookie-text p{
-  font-size:.875rem;
-  color:rgba(255,255,255,.80);
-  line-height:1.5;
+.cookie-btns {
+  display: flex;
+  gap: 10px;
 }
 
-.cookie-btns{
-  display:flex;
-  gap:10px;
-  flex-shrink:0;
+.cookie-btns button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
 }
 
-.cookie-btns button{
-  padding:10px 18px;
-  border:none;
-  border-radius:12px;
-  font-weight:700;
-  font-size:.85rem;
-  cursor:pointer;
-  min-height:44px;
-  transition:opacity .2s;
+.btn-accept {
+  background: #4ADE80;
+  color: #1A3C34;
 }
 
-.cookie-btns button:hover{
-  opacity:.85;
+.btn-decline {
+  background: rgba(255,255,255,.12);
+  color: #fff;
 }
 
-.btn-accept{
-  background:#4ADE80;
-  color:#1A3C34;
+/* INNER PAGES */
+.inner-page {
+  min-height: 100vh;
+  padding: 60px 40px 100px;
 }
 
-.btn-decline{
-  background:rgba(255,255,255,.12);
-  color:rgba(255,255,255,.75);
+.inner-wrap {
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-@media (max-width:768px){
+.back-btn {
+  margin-bottom: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7a9b92;
+  font-weight: 600;
+}
 
-  .hero-content{
-    padding:80px 20px 160px;
+.inner-page h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.inner-page h2 {
+  margin: 32px 0 12px;
+}
+
+.inner-page p {
+  line-height: 1.8;
+  color: #4a6b5f;
+}
+
+.contact-card {
+  background: #F8FAFC;
+  padding: 40px;
+  border-radius: 24px;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .hero-content,
+  .trust,
+  .wellness,
+  .inner-page {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
-  .trust{
-    padding:72px 20px;
+  .wellness-row {
+    grid-template-columns: 1fr;
   }
 
-  .wellness{
-    padding:72px 20px;
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .wellness-row{
-    grid-template-columns:1fr;
-    gap:36px;
-    margin-bottom:64px;
+  .mobile-cta {
+    display: block;
   }
 
-  footer{
-    padding:40px 20px 150px;
-  }
-
-  .footer-inner{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .footer-links{
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-
-  .mobile-cta{
-    display:block;
-  }
-
-  .cookie-box{
-    flex-direction:column;
-    text-align:center;
-    gap:12px;
-  }
-
-  .cookie-text{
-    justify-content:center;
-  }
-
-  .cookie-btns{
-    justify-content:center;
-    width:100%;
-  }
-
-  .cookie-btns button{
-    flex:1;
+  .cookie-box {
+    flex-direction: column;
+    text-align: center;
   }
 }
 </style>
 </head>
-
 <body>
 
+<!-- HOME -->
 <div id="page-home" class="page active">
 
 <section class="hero">
-
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-
     <div class="hero-inner">
-
-      <p class="hero-eyebrow">
-        Optimal Wellness Daily
-      </p>
+      <p class="hero-eyebrow">Optimal Wellness Daily</p>
 
       <h1>
         Unlock Your<br>
         <span>Daily Energy</span>,<br>
-        Focus &amp; Balance
+        Focus & Balance
       </h1>
 
       <p>
@@ -510,253 +447,212 @@ footer{
         mental clarity and daily performance through better habits.
       </p>
 
-      <!-- BOTÃO FUNCIONANDO -->
-      <a
-        class="btn-primary"
-        id="ctaDesktop"
-        href="https://www.diginear.com/33W2FTW8/2358PKDD/"
-        target="_blank"
-      >
-        Continue
-        <span class="btn-arrow">→</span>
+      <a class="btn-primary" id="ctaDesktop" href="https://www.diginear.com/33W2FTW8/2358PKDD/">
+        Continue <span class="btn-arrow">→</span>
       </a>
-
     </div>
-
   </div>
-
 </section>
 
 <section class="trust">
-
   <div class="trust-center">
-
-    <span class="section-eyebrow">
-      The Science Behind It
-    </span>
-
-    <h2 class="section-title">
-      Three Pillars of Wellness
-    </h2>
-
+    <span class="section-eyebrow">The Science Behind It</span>
+    <h2 class="section-title">Three Pillars of Wellness</h2>
   </div>
 
   <div class="cards-grid">
-
     <div class="card">
       <div class="card-icon">⚡</div>
-
       <h3>Sustained Energy</h3>
-
-      <p>
-        Support your body's natural vitality through a targeted blend
-        of nutrients designed for all-day stamina without crashes.
-      </p>
+      <p>Support your body's natural vitality through a targeted blend of nutrients.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">🧠</div>
-
       <h3>Mental Clarity</h3>
-
-      <p>
-        Sharpen your focus and cognitive performance with ingredients
-        backed by modern nutritional science.
-      </p>
+      <p>Sharpen your focus and cognitive performance naturally.</p>
     </div>
 
     <div class="card">
       <div class="card-icon">⚖️</div>
-
       <h3>Daily Balance</h3>
-
-      <p>
-        Achieve a harmonious equilibrium between body and mind,
-        optimising your wellness routine effortlessly.
-      </p>
+      <p>Achieve a harmonious equilibrium between body and mind.</p>
     </div>
-
   </div>
-
 </section>
 
-<footer>
-
-  <div class="footer-inner">
-
-    <p>
-      © <span class="yr"></span>
-      Optimal Wellness Daily.
-      All rights reserved.
-    </p>
-
-    <div class="footer-links">
-      <a>Privacy Policy</a>
-      <a>Terms &amp; Conditions</a>
-      <a>Contact</a>
+<div class="wellness">
+  <div class="wellness-row">
+    <div class="wellness-img">
+      <img src="https://media.base44.com/images/public/6a04f0ba8a3583144fe94749/b31747a93_generated_79fec221.png">
     </div>
 
-  </div>
+    <div class="wellness-text">
+      <span class="section-eyebrow">Your Wellness Journey</span>
+      <h2>A New Standard in Daily Optimisation</h2>
 
+      <p>
+        Built for those who demand more from their day.
+      </p>
+
+      <ul class="benefits-list">
+        <li><span class="check-icon">✓</span> Supports natural metabolic processes</li>
+        <li><span class="check-icon">✓</span> Premium botanical ingredients</li>
+        <li><span class="check-icon">✓</span> Easy daily routine</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>© <span class="yr"></span> Optimal Wellness Daily</p>
+
+    <div class="footer-links">
+      <a onclick="showPage('privacy')">Privacy Policy</a>
+      <a onclick="showPage('terms')">Terms & Conditions</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+  </div>
 </footer>
 
 </div>
 
-<!-- MOBILE CTA -->
-<div class="mobile-cta" id="mobileCta">
+<!-- PRIVACY PAGE -->
+<div id="page-privacy" class="page">
+  <div class="inner-page">
+    <div class="inner-wrap">
 
-  <a
-    id="ctaMobile"
-    href="https://www.diginear.com/33W2FTW8/2358PKDD/"
-    target="_blank"
-  >
-    Continue →
-  </a>
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
 
+      <h1>Privacy Policy</h1>
+
+      <h2>Information Collection</h2>
+      <p>
+        We collect limited analytics data to improve user experience and website performance.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        This website uses cookies for analytics and performance tracking.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        We may use third-party services such as Google Analytics.
+      </p>
+
+    </div>
+  </div>
 </div>
 
-<!-- COOKIE -->
-<div id="cookieBanner">
+<!-- TERMS PAGE -->
+<div id="page-terms" class="page">
+  <div class="inner-page">
+    <div class="inner-wrap">
 
-  <div class="cookie-box">
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
 
-    <div class="cookie-text">
-      <span class="cookie-emoji">🍪</span>
+      <h1>Terms & Conditions</h1>
 
+      <h2>Acceptance of Terms</h2>
       <p>
-        We use cookies for analytics and to improve your experience.
+        By using this website, you agree to these terms and conditions.
       </p>
+
+      <h2>Affiliate Disclaimer</h2>
+      <p>
+        This website may contain affiliate links.
+      </p>
+
+      <h2>Limitation of Liability</h2>
+      <p>
+        We are not liable for damages resulting from website usage.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="page-contact" class="page">
+  <div class="inner-page">
+    <div class="inner-wrap">
+
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+
+      <h1>Contact Us</h1>
+
+      <div class="contact-card">
+        <h2>Email Support</h2>
+        <p>
+          contact@optimalwellnessdaily.com
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE CTA -->
+<div class="mobile-cta" id="mobileCta">
+  <a href="https://www.diginear.com/33W2FTW8/2358PKDD/">
+    Continue →
+  </a>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner">
+  <div class="cookie-box">
+    <div class="cookie-text">
+      <p>🍪 We use cookies for analytics and experience improvement.</p>
     </div>
 
     <div class="cookie-btns">
-
-      <button class="btn-decline" id="btnDecline">
-        Decline
-      </button>
-
-      <button class="btn-accept" id="btnAccept">
-        Accept
-      </button>
-
+      <button class="btn-decline" id="btnDecline">Decline</button>
+      <button class="btn-accept" id="btnAccept">Accept</button>
     </div>
-
   </div>
-
 </div>
 
 <script>
-
 // YEAR
-document.querySelectorAll('.yr').forEach(function(el){
-  el.textContent = new Date().getFullYear();
-});
+ document.querySelectorAll('.yr').forEach(function(el) {
+   el.textContent = new Date().getFullYear();
+ });
 
-// GA
-var gaLoaded = false;
+// ROUTER
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(function(page) {
+    page.classList.remove('active');
+  });
 
-function loadGA(){
+  document.getElementById('page-' + name).classList.add('active');
 
-  if(gaLoaded) return;
-
-  var s = document.createElement('script');
-
-  s.src =
-    'https://www.googletagmanager.com/gtag/js?id=G-Z9NM7T198P';
-
-  s.async = true;
-
-  document.head.appendChild(s);
-
-  window.dataLayer =
-    window.dataLayer || [];
-
-  function gtag(){
-    dataLayer.push(arguments);
-  }
-
-  window.gtag = gtag;
-
-  gtag('js', new Date());
-
-  gtag(
-    'config',
-    'G-Z9NM7T198P'
-  );
-
-  gaLoaded = true;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// COOKIE
-var banner =
-  document.getElementById('cookieBanner');
+// COOKIE BANNER
+const banner = document.getElementById('cookieBanner');
+const consent = localStorage.getItem('cookieConsent');
 
-var btnAccept =
-  document.getElementById('btnAccept');
-
-var btnDecline =
-  document.getElementById('btnDecline');
-
-var consent =
-  localStorage.getItem('cookieConsent');
-
-if(consent === 'accepted'){
-
-  loadGA();
-
-}else if(consent !== 'declined'){
-
-  setTimeout(function(){
+if (!consent) {
+  setTimeout(function() {
     banner.style.display = 'block';
-  },800);
+  }, 1000);
 }
 
-btnAccept.addEventListener('click',function(){
+ document.getElementById('btnAccept').addEventListener('click', function() {
+   localStorage.setItem('cookieConsent', 'accepted');
+   banner.style.display = 'none';
+ });
 
-  localStorage.setItem(
-    'cookieConsent',
-    'accepted'
-  );
-
-  loadGA();
-
-  banner.style.display = 'none';
-});
-
-btnDecline.addEventListener('click',function(){
-
-  localStorage.setItem(
-    'cookieConsent',
-    'declined'
-  );
-
-  banner.style.display = 'none';
-});
-
-// TRACKING CTA
-function trackCTA(){
-
-  if(typeof gtag === 'function'){
-
-    gtag(
-      'event',
-      'generate_lead',
-      {
-        event_category:'affiliate',
-        event_label:'cta_click'
-      }
-    );
-  }
-}
-
-document
-  .getElementById('ctaDesktop')
-  .addEventListener('click',trackCTA);
-
-document
-  .getElementById('ctaMobile')
-  .addEventListener('click',trackCTA);
-
+ document.getElementById('btnDecline').addEventListener('click', function() {
+   localStorage.setItem('cookieConsent', 'declined');
+   banner.style.display = 'none';
+ });
 </script>
 
 </body>
 </html>
+```
